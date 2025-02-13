@@ -46,10 +46,17 @@ def test_compare_work():
 			return work_calc(n, 2, 2, f_c_equal)  # c = log_b a
 
 	# Compare the work functions
-	res = compare_work(work_fn1, work_fn2, sizes)
-
-	# Print results in table format
-	print_results(res)
+	res1 = compare_work(work_fn1, work_fn2, sizes)  # small vs equal
+	
+	def work_fn3(n):
+			return work_calc(n, 2, 2, f_c_large)  # c > log_b a
+	
+	res2 = compare_work(work_fn2, work_fn3, sizes)  # equal vs large
+	
+	print("\nComparing small vs equal:")
+	print_results(res1)
+	print("\nComparing equal vs large:")
+	print_results(res2)
 
 
 
