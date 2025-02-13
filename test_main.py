@@ -21,37 +21,30 @@ def test_work():
 	
 
 def test_compare_work():
-	"""
-	Compare empirical values of W(n) for different f(n) = n^c cases
-	to justify theoretical predictions.
-	"""
-	# Define values of n to test
+	
 	sizes = [10, 20, 50, 100, 500, 1000]
 
-	# Define different f(n) cases using def
 	def f_c_small(n):
-			return n ** 0.5  # c < log_b a (Expected O(n^log_b a))
+			return n ** 0.5  
 
 	def f_c_equal(n):
-			return n  # c = log_b a (Expected O(n log n))
+			return n 
 
 	def f_c_large(n):
-			return n ** 1.5  # c > log_b a (Expected O(n^c))
+			return n ** 1.5  
 
-	# Create work functions for comparison
 	def work_fn1(n):
-			return work_calc(n, 2, 2, f_c_small)  # c < log_b a
+			return work_calc(n, 2, 2, f_c_small)  
 
 	def work_fn2(n):
-			return work_calc(n, 2, 2, f_c_equal)  # c = log_b a
+			return work_calc(n, 2, 2, f_c_equal)  
 
-	# Compare the work functions
-	res1 = compare_work(work_fn1, work_fn2, sizes)  # small vs equal
+	res1 = compare_work(work_fn1, work_fn2, sizes) 
 	
 	def work_fn3(n):
-			return work_calc(n, 2, 2, f_c_large)  # c > log_b a
+			return work_calc(n, 2, 2, f_c_large)  
 	
-	res2 = compare_work(work_fn2, work_fn3, sizes)  # equal vs large
+	res2 = compare_work(work_fn2, work_fn3, sizes) 
 	
 	print("\nComparing small vs equal:")
 	print_results(res1)
@@ -61,6 +54,27 @@ def test_compare_work():
 
 
 def test_compare_span():
-	print(1)
 
-test_compare_work()
+	sizes = [10, 20, 50, 100, 500, 1000]
+
+	def f_c_small(n):
+			return n ** 0.5  
+
+	def f_c_equal(n):
+			return n  
+
+	def f_c_large(n):
+			return n ** 1.5  
+
+	def span_fn1(n):
+			return span_calc(n, 2, 2, f_c_small) 
+
+	def span_fn2(n):
+			return span_calc(n, 2, 2, f_c_equal) 
+
+	def span_fn3(n):
+			return span_calc(n, 2, 2, f_c_large) 
+
+	res = compare_work(span_fn1, span_fn2, sizes)
+
+	print_results(res)

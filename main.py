@@ -64,9 +64,8 @@ def span_calc(n, a, b, f):
 	# TODO
 	if n <= 1:
 		return 1
-	else:
-		print("n")
-	pass
+	return span_calc(n//b, a, b, f) + f(n)
+	
 
 
 
