@@ -38,6 +38,20 @@ where $W(1) = 1$.
 - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
 
 **TODO: your answer goes here**
+Using the Master Theorem, we analyze the recurrence  W(n) = aW(n/b) + f(n) for different cases of f(n). When f(n) = 1, the recurrence follows Case 1 of the Master Theorem, giving W(n) = O(n^{log_b a}). for a = 2, b = 2, we get O(n). When f(n) = log n, since O(n^{log_b a}) dominates O(log n), the complexity remains O(n). When f(n) = n, it follows Case 2 of the Master Theorem, resulting in O(n log n). These theoretical results align with our computed values from work_calc(), where f(n) = 1 exhibits linear growth O(n), f(n) = log n behaves similarly to  O(n), and f(n) = n grows faster, following O(n log n). This confirms that the trends observed in actual calculations match the expected asymptotic behavior.
+|      |    n |   W_1 |   W_2 |
+|------|------|-------|-------|
+|    2 |    3 |     3 |     4 |
+|    4 |    7 |     8 |    12 |
+|    8 |   15 |    19 |    32 |
+|   16 |   31 |    42 |    80 |
+|   32 |   63 |    89 |   192 |
+|   64 |  127 |   184 |   448 |
+|  128 |  255 |   375 |  1024 |
+|  256 |  511 |   758 |  2304 |
+|  512 | 1023 |  1525 |  5120 |
+| 1024 | 2047 |  3060 | 11264 |
+
 
 - [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `test_compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 

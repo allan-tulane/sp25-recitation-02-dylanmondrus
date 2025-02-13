@@ -120,6 +120,12 @@ def compare_span(span_fn1, span_fn2, sizes=[10, 20, 50, 100, 1000, 5000, 10000])
 	return result
 	
 
-print_results([("result", work_calc(10, 2, 2, lambda n: 1))])
-print_results([("result", work_calc(10, 2, 2, lambda n: int(math.log2(n))))])
-print_results([("result", work_calc(10, 2, 2, lambda n: n))])
+results = [
+		(n, work_calc(n, 2, 2, lambda n: 1), 
+		 work_calc(n, 2, 2, lambda n: int(math.log2(n))),  
+		 work_calc(n, 2, 2, lambda n: n))  
+		for n in [2**i for i in range(1, 11)]  
+]
+
+print_results(results)
+
