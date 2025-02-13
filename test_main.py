@@ -56,3 +56,4 @@ def test_compare_work():
 def test_compare_span():
 	print(1)
 
+test_compare_work()
